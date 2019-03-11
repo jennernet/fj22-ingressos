@@ -144,10 +144,16 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.0.v20161208</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <scanIntervalSeconds>10</scanInterval Seconds>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <developers>
+        <developer>
+          <name>Jenner A.Moreira</name>
+          <email>jenner.moreira@cnj.jus.br</emaill>
+        </developer>
+    </developers>
 </project>
