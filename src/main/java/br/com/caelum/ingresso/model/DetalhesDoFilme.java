@@ -10,7 +10,7 @@ public class DetalhesDoFilme {
 	private String ano;
 	
 	@JsonProperty("Poster")
-	private String poster;
+	private String imagem;
 	
 	@JsonProperty("Director")
 	private String diretores;
@@ -43,12 +43,12 @@ public class DetalhesDoFilme {
 		this.ano = ano;
 	}
 
-	public String getPoster() {
-		return poster;
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setPoster(String poster) {
-		this.poster = poster;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getDiretores() {
@@ -90,6 +90,6 @@ public class DetalhesDoFilme {
 	public void setAvaliacao(String avaliacao) {
 		this.avaliacao = avaliacao;
 	}
-	
-	
+
+
 }
