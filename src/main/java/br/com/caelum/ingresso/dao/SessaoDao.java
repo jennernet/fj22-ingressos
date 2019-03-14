@@ -13,6 +13,7 @@ import br.com.caelum.ingresso.model.Sessao;
 
 @Repository
 public class SessaoDao {
+	
 	@PersistenceContext
 	private EntityManager manager;
 	
@@ -26,5 +27,9 @@ public class SessaoDao {
 	
 	public List<Sessao> buscaSessoesDaSala(Sala sala) {
 		return manager.createQuery("select s from Sessao s where s.sala= :sala", Sessao.class).setParameter("sala", sala).getResultList();
+	}
+	
+	public Sessao finOne(Integer id) {
+		return manager.find(Sessao.class,id);
 	}
 }
