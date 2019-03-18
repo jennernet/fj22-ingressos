@@ -21,6 +21,7 @@ public class Sessao {
   @Id
   @GeneratedValue
   private Integer id;
+  
   private LocalTime horario;
   @ManyToOne
   private Sala sala;
@@ -29,7 +30,15 @@ public class Sessao {
   
   private BigDecimal preco;
   
-  @OneToMany(mappedBy = "sessao", fetch = FetchType.EAGER)
+  public Set<Ingresso> getIngressos() {
+	return ingressos;
+}
+
+public void setIngressos(Set<Ingresso> ingressos) {
+	this.ingressos = ingressos;
+}
+
+@OneToMany(mappedBy = "sessao", fetch = FetchType.EAGER)
   private Set<Ingresso> ingressos = new HashSet<>();
   
   public boolean isDisponivel(Lugar lugarSelecionado) {
