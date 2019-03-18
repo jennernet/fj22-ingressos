@@ -19,6 +19,7 @@ import br.com.caellum.ingresso.validacao.GerenciadorDeSessao;
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
+import br.com.caelum.ingresso.model.Carrinho;
 import br.com.caelum.ingresso.model.ImagemCapa;
 import br.com.caelum.ingresso.model.Sessao;
 import br.com.caelum.ingresso.model.TipoDeIngresso;
@@ -38,7 +39,26 @@ public class SessaoController {
 	@Autowired
 	private OmdbClient client;
 	
+	@Autowired 
+	private Carrinho carrinho;
+	
 	@GetMapping("/sessao/{id}/lugares")
+	public ModelAndView lugaresNaSessao(@PathVariable("id") Integer sessaoId) {
+		ModelAndView modelAndView = new ModelAndView("sessao/lugares");
+		
+		Sessao sessao = sessaoDao.finOne(sessaoId);
+		
+		Optional<ImagemCapa> imagemCapa = client.request(sessao.getFilme(), ImagemCapa.class);
+		
+		modelAndView.addObject("sessao", sessao);
+		modelAndView.addObject("carrinho", carrinho);
+		modelAndView.addObject("imagemCapa", imagemCapa.orElse(new ImagemCapa()));
+		modelAndView.addObject("tiposDeIngressos", TipoDeIngresso.values());
+		
+		return modelAndView;
+	}
+		
+	/*@GetMapping("/sessao/{id}/lugares")
 	public ModelAndView lugaresNaSessao(@PathVariable("id") Integer sessaoId) {
 		ModelAndView modelAndView = new ModelAndView("sessao/lugares");
 		
@@ -50,8 +70,40 @@ public class SessaoController {
 		modelAndView.addObject("tiposDeIngressos", TipoDeIngresso.values());
 		
 		return modelAndView;
-	}
+	}*/
 	
+	public SalaDao getSalaDao() {
+		return salaDao;
+	}
+
+	public void setSalaDao(SalaDao salaDao) {
+		this.salaDao = salaDao;
+	}
+
+	public FilmeDao getFilmeDao() {
+		return filmeDao;
+	}
+
+	public void setFilmeDao(FilmeDao filmeDao) {
+		this.filmeDao = filmeDao;
+	}
+
+	public SessaoDao getSessaoDao() {
+		return sessaoDao;
+	}
+
+	public void setSessaoDao(SessaoDao sessaoDao) {
+		this.sessaoDao = sessaoDao;
+	}
+
+	public OmdbClient getClient() {
+		return client;
+	}
+
+	public void setClient(OmdbClient client) {
+		this.client = client;
+	}
+
 	@GetMapping("/admin/sessao")
 	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
 		
