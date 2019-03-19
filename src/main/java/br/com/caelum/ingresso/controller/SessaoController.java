@@ -46,7 +46,7 @@ public class SessaoController {
 	public ModelAndView lugaresNaSessao(@PathVariable("id") Integer sessaoId) {
 		ModelAndView modelAndView = new ModelAndView("sessao/lugares");
 		
-		Sessao sessao = sessaoDao.finOne(sessaoId);
+		Sessao sessao = sessaoDao.findOne(sessaoId);
 		
 		Optional<ImagemCapa> imagemCapa = client.request(sessao.getFilme(), ImagemCapa.class);
 		
