@@ -11,6 +11,10 @@ import org.springframework.web.context.annotation.SessionScope;
 @SessionScope
 public class Carrinho {
 	
+	public Compra toCompra() {
+		return new Compra(ingressos);
+	}
+	
 	public BigDecimal getTotal(){
 		return ingressos.stream().map(Ingresso::getPreco).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
 	}
