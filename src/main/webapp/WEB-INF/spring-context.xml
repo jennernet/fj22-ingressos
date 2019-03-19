@@ -22,7 +22,7 @@
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
 			<set merge="true">
-			 	<bean class="br.com.caelum.ingresso.converter.YearMonthConverter"/>
+			 	<bean class="br.com.caelum.ingresso.model.YearMonthConverter"/>
 			</set>
 		</property>
 	</bean>

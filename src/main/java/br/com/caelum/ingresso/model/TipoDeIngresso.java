@@ -16,4 +16,8 @@ public enum TipoDeIngresso {
 	public BigDecimal aplicaDesconto(BigDecimal valor) {
 		return desconto.aplicarDescontoSobre(valor);
 	}
+	
+	public String getDescricao() {
+		return desconto.getDescricao();
+	}
 }
