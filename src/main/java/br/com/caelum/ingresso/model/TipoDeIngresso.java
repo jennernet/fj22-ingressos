@@ -9,27 +9,11 @@ public enum TipoDeIngresso {
 	
 	private final Desconto desconto;
 	
-<<<<<<< HEAD
 	TipoDeIngresso(Desconto desconto){
 		this.desconto = desconto;
 	}
 	
 	public BigDecimal aplicaDesconto(BigDecimal valor) {
 		return desconto.aplicarDescontoSobre(valor);
-	}
-	
-	public String getDescricao() {
-=======
-	TipoDeIngresso(Desconto desconto) {
-		this.desconto = desconto;
-	}
-	
-	public BigDecimal aplicaDesconto(BigDecimal valor){
-		return desconto.aplicarDescontoSobre(valor);
-	}
-	
-	public String getDescricao(){
->>>>>>> work
-		return desconto.getDescricao();
 	}
 }
