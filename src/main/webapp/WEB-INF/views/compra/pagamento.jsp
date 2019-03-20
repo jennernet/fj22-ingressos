@@ -86,7 +86,7 @@
                     <button type="submit" class="btn btn-primary">Comprar</button>
                 </div>
             </div>
-
+   			<input type="hidden" name="${_csrf.ParameterName}" value="${_csrf.token}">
         </form>
 		</div>
     </jsp:body>

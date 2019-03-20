@@ -20,7 +20,7 @@
 			<tbody>
 				<c:forEach var="filme" items="${filmes}">
 					<tr>
-						<td>${filme.nome}</td>
+						<td><c:out value="${filme.nome}"/></td>
 						<td>${filme.duracao.toMinutes()}</td>
 						<td>${filme.preco}</td>						
 						<td>

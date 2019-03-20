@@ -39,6 +39,7 @@
 
 
             <button type="submit" class="btn btn-primary">Gravar</button>
+            <input type="hidden" name="${_csrf.ParameterName}" value="${_csrf.token}">
         </form>
         </div>
     </jsp:body>

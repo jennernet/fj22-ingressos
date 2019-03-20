@@ -23,6 +23,7 @@
 			<div class="form-group">
          		<button type="submit" class="btn btn-primary">Gravar</button>
 			</div>
+			<input type="hidden" name="${_csrf.ParameterName}" value="${_csrf.token}">
 		</form>
 		</div>
 

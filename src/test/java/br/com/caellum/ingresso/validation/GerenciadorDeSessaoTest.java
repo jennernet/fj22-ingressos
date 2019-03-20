@@ -11,10 +11,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.caellum.ingresso.validacao.GerenciadorDeSessao;
 import br.com.caelum.ingresso.model.Filme;
 import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.validacao.GerenciadorDeSessao;
 
 public class GerenciadorDeSessaoTest {
 	

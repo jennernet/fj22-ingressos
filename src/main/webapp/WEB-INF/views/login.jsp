@@ -31,7 +31,7 @@
             </c:if>
             <form action="/login" method="post">
                 <span class="text-danger">${param.error}</span>
-
+                
                 <div class="form-group">
                     <label for="login">E-mail:</label>
                     <input id="login" type="text" name="email" class="form-control">
@@ -45,6 +45,8 @@
                 <button class="btn btn-primary" type="submit">Entrar</button>
 
                 <a href="/usuario">ou cadastrar-se</a>
+                
+                <input type="hidden" name="${_csrf.ParameterName}" value="${_csrf.token}">
             </form>
         </div>
     </jsp:body>
